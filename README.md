@@ -2,7 +2,10 @@
 https://javascript30.com/
 ## Day 1
 ### 01 - Javascript Drum Kit
-I decided to make a piano instead
+
+I decided to make a piano instead.
+
+Demo: https://dlouise64.github.io/js-challenge/
 
 Todo:
 * extend keys
