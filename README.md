@@ -5,7 +5,7 @@ https://javascript30.com/
 
 I decided to make a piano instead.
 
-Demo: https://dlouise64.github.io/js-challenge/
+Demo: https://dlouise64.github.io/js-challenge/01-JavaScript-Drum-Kit/
 
 Todo:
 * extend keys
