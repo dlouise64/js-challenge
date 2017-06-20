@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #CCC;
+}
+
+.piano {
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+  width: 34rem;
+  height: 18.875rem;
+  position: relative;
+}
+.piano .black, .piano .white {
+  float: left;
+}
+.piano .black {
+  position: relative;
+  background-color: #000;
+  height: 9.375rem;
+  width: 2rem;
+  margin-left: -1rem;
+  z-index: 1;
+  box-shadow: -625rem -625rem 0.125rem rgba(255, 255, 255, 0.1) inset, 0 -0.3125rem 0.125rem 0.1875rem rgba(0, 0, 0, 0.6) inset, 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+  background: -webkit-linear-gradient(45deg, #111 0%, #444 100%);
+  background: linear-gradient(45deg, #111 0%, #444 100%);
+}
+.piano .black:active {
+  box-shadow: -0.0625rem -0.0625rem 0.125rem rgba(255, 255, 255, 0.2) inset, 0 -0.125rem 0.125rem 0.1875rem rgba(0, 0, 0, 0.6) inset, 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.5);
+  background: -webkit-linear-gradient(left, #444 0%, #222 100%);
+  background: linear-gradient(left, #444 0%, #222 100%);
+}
+.piano .white {
+  background-color: #FFF;
+  height: 16rem;
+  width: 4rem;
+  margin-left: -1rem;
+  border-right: .0625rem solid #CCC;
+}
+.piano .white:active {
+  border-top: .0625rem solid #777;
+  border-left: .0625rem solid #999;
+  box-shadow: 0.1875rem 0 0.1875rem rgba(0, 0, 0, 0.1) inset, -0.3125rem 0.3125rem 1.25rem rgba(0, 0, 0, 0.2) inset, 0 0 0.3125rem rgba(0, 0, 0, 0.2);
+}
+.piano .offset {
+  margin-right: 1rem;
+}
