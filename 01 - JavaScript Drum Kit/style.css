@@ -17,6 +17,7 @@ body {
 }
 .piano .black, .piano .white {
   float: left;
+  text-align:center;
 }
 .piano .black {
   position: relative;
@@ -36,6 +37,7 @@ body {
 }
 
 .piano .white {
+  position:relative;
   background-color: #FFF;
   height: 16rem;
   width: 4rem;
@@ -63,4 +65,58 @@ body {
   border-left: .0625rem solid #999 !important;
   box-shadow: 0.1875rem 0 0.1875rem rgba(0, 0, 0, 0.1) inset, -0.3125rem 0.3125rem 1.25rem rgba(0, 0, 0, 0.2) inset, 0 0 0.3125rem rgba(0, 0, 0, 0.2) !important;
   transition:all 0.1s !important;
+}
+
+.key kbd, .key span {
+  position:absolute;
+}
+
+/* FIXME: tidy me*/
+
+.key kbd, .key span {
+  border-radius:100%;
+}
+
+.white kbd {
+  bottom:20px;
+  left:0;
+  right:0;
+  margin: 0 21px;
+  font-size:1.25rem;
+  border:1px solid #333;
+}
+.black kbd {
+  bottom:10px;
+  margin: 0 6px;
+  font-size:1.25rem;
+  border:1px solid #CCC;
+  color:#FFF;
+}
+.key span {
+  top:10px;
+  left:0;
+  right:0;
+  font-size:10px;
+  border:1px solid #333;
+}
+
+.black kbd, .key span {
+  left:0;
+  right:0;
+}
+
+.white span {
+  /*color:#000;*/
+  margin: 0 24px;
+}
+.black span {
+  color:#B9B9B9;
+  margin:0 8px;
+  border:1px solid #B9B9B9;
+}
+
+
+.key_black_playing kbd, .key_white_playing kbd {
+  color:#00a1ff;
+  border-color:#00a1ff;
 }
