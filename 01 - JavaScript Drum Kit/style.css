@@ -34,6 +34,7 @@ body {
   background: -webkit-linear-gradient(left, #444 0%, #222 100%);
   background: linear-gradient(left, #444 0%, #222 100%);
 }
+
 .piano .white {
   background-color: #FFF;
   height: 16rem;
@@ -46,6 +47,20 @@ body {
   border-left: .0625rem solid #999;
   box-shadow: 0.1875rem 0 0.1875rem rgba(0, 0, 0, 0.1) inset, -0.3125rem 0.3125rem 1.25rem rgba(0, 0, 0, 0.2) inset, 0 0 0.3125rem rgba(0, 0, 0, 0.2);
 }
+
 .piano .offset {
   margin-right: 1rem;
+}
+
+.key_black_playing {
+  box-shadow: -0.0625rem -0.0625rem 0.125rem rgba(255, 255, 255, 0.2) inset, 0 -0.125rem 0.125rem 0.1875rem rgba(0, 0, 0, 0.6) inset, 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.5)  !important;
+  background: -webkit-linear-gradient(left, #444 0%, #222 100%) !important;
+  background: linear-gradient(left, #444 0%, #222 100%) !important;
+  transition:all 0.1s !important;
+}
+.key_white_playing {
+  border-top: .0625rem solid #777 !important;
+  border-left: .0625rem solid #999 !important;
+  box-shadow: 0.1875rem 0 0.1875rem rgba(0, 0, 0, 0.1) inset, -0.3125rem 0.3125rem 1.25rem rgba(0, 0, 0, 0.2) inset, 0 0 0.3125rem rgba(0, 0, 0, 0.2) !important;
+  transition:all 0.1s !important;
 }
