@@ -1,1 +1,154 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JS Piano</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+  <!-- <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div> -->
+
+  <ul class="piano" ontouchstart="">
+    <li class="key white key_white" data-key="71">
+      <span>C</span>
+      <kbd>G</kbd>
+    </li>
+    <li class="key black key_black" data-key="89">
+      <span>C#</span>
+      <kbd>Y</kbd>
+    </li>
+    <li class="key white key_white" data-key="72">
+      <span>D</span>
+      <kbd>H</kbd>
+    </li>
+    <li class="key black key_black" data-key="85">
+      <span>D#</span>
+      <kbd>U</kbd>
+    </li>
+    <li class="key white offset key_white" data-key="74">
+      <span>E</span>
+      <kbd>J</kbd>
+    </li>
+    <li class="key white key_white" data-key="75">
+      <span>F</span>
+      <kbd>K</kbd>
+    </li>
+    <li class="key black key_black" data-key="79">
+      <span>F#</span>
+      <kbd>O</kbd>
+    </li>
+    <li class="key white key_white" data-key="76">
+      <span>G</span>
+      <kbd>L</kbd>
+    </li>
+    <li class="key black key_black" data-key="80">
+      <span>G#</span>
+      <kbd>P</kbd>
+    </li>
+    <li class="key white key_white" data-key="186">
+      <span>A</span>
+      <kbd>;</kbd>
+    </li>
+    <li class="key black key_black" data-key="219">
+      <span>A#</span>
+      <kbd>[</kbd>
+    </li>
+    <li class="key white key_white" data-key="222">
+      <span>B</span>
+      <kbd>'</kbd>
+    </li>
+  </ul>
+
+  <audio data-key="71" src="sounds/c1.wav"></audio>
+  <audio data-key="89" src="sounds/c1s.wav"></audio>
+  <audio data-key="72" src="sounds/d1.wav"></audio>
+  <audio data-key="85" src="sounds/d1s.wav"></audio>
+  <audio data-key="74" src="sounds/e1.wav"></audio>
+  <audio data-key="75" src="sounds/f1.wav"></audio>
+  <audio data-key="79" src="sounds/f1s.wav"></audio>
+  <audio data-key="76" src="sounds/g1.wav"></audio>
+  <audio data-key="80" src="sounds/g1s.wav"></audio>
+  <audio data-key="186" src="sounds/a1.wav"></audio>
+  <audio data-key="219" src="sounds/a1s.wav"></audio>
+  <audio data-key="222" src="sounds/b1.wav"></audio>
+
+  <script>
+    window.addEventListener('keydown', function(e) {
+      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+      const key_white = document.querySelector(`.white[data-key="${e.keyCode}"]`);
+      const key_black = document.querySelector(`.black[data-key="${e.keyCode}"]`);
+
+      // FIXME: tidy up
+      if (key_white) {
+        key_white.classList.add('key_white_playing');
+      }
+      if (key_black) {
+        key_black.classList.add('key_black_playing');
+      }
+
+      if (!audio) return;
+      audio.currentTime = 0;
+      audio.play();
+
+      const keys = document.querySelectorAll('.key');
+
+      function removeTransition(e) {
+        if (e.propertyName !== 'box-shadow') return;
+
+        // FIXME: tidy up
+        if (this.classList.contains('white')) {
+          this.classList.remove('key_white_playing');
+        } else {
+          this.classList.remove('key_black_playing');
+        }
+      }
+      keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+    });
+  </script>
+
+
+</body>
+
+</html>
