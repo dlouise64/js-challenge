@@ -114,38 +114,56 @@
   <audio data-key="222" src="sounds/b1.wav"></audio>
 
   <script>
-    window.addEventListener('keydown', function(e) {
-      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-      const key_white = document.querySelector(`.white[data-key="${e.keyCode}"]`);
-      const key_black = document.querySelector(`.black[data-key="${e.keyCode}"]`);
 
-      // FIXME: tidy up
-      if (key_white) {
-        key_white.classList.add('key_white_playing');
-      }
-      if (key_black) {
-        key_black.classList.add('key_black_playing');
-      }
+    const windowEvents = ['mousedown', 'keydown'];
+    windowEvents.forEach(function(ev){
 
-      if (!audio) return;
-      audio.currentTime = 0;
-      audio.play();
+      window.addEventListener(ev, function(e) {
 
-      const keys = document.querySelectorAll('.key');
+        if(ev == 'mousedown'){
+          if(e.srcElement.dataset['key'] == null){
+            var keySrc = e.srcElement.parentElement.dataset['key'];
+          } else {
+            var keySrc = e.srcElement.dataset['key'];
+          }
+        } else {
+          var keySrc = e.keyCode;
+        }
 
-      function removeTransition(e) {
-        if (e.propertyName !== 'box-shadow') return;
+        const audio = document.querySelector(`audio[data-key="${keySrc}"]`);
+        const key_white = document.querySelector(`.white[data-key="${keySrc}"]`);
+        const key_black = document.querySelector(`.black[data-key="${keySrc}"]`);
 
         // FIXME: tidy up
-        if (this.classList.contains('white')) {
-          this.classList.remove('key_white_playing');
-        } else {
-          this.classList.remove('key_black_playing');
+        if (key_white) {
+          key_white.classList.add('key_white_playing');
         }
-      }
-      keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+        if (key_black) {
+          key_black.classList.add('key_black_playing');
+        }
 
-    });
+        if (!audio) return;
+        audio.currentTime = 0;
+        audio.play();
+
+        const keys = document.querySelectorAll('.key');
+
+        function removeTransition(e) {
+          if (e.propertyName !== 'box-shadow') return;
+
+          // FIXME: tidy up
+          if (this.classList.contains('white')) {
+            this.classList.remove('key_white_playing');
+          } else {
+            this.classList.remove('key_black_playing');
+          }
+        }
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+      });
+
+    })
+
   </script>
 
 
