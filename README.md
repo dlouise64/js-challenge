@@ -10,6 +10,7 @@ Demo: https://dlouise64.github.io/js-challenge/01-JavaScript-Drum-Kit/index.html
 ![alt text](https://user-images.githubusercontent.com/4723307/27332816-a4fe0a38-5617-11e7-8638-aa2cb3785d8a.png "A mini Piano")
 
 Todo:
+* convert wav to WebM
 * extend keys
 * <strike>Add sounds to mouse events</strike>
 * Add sounds to touch events
