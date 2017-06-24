@@ -11,8 +11,10 @@ Demo: https://dlouise64.github.io/js-challenge/01-JavaScript-Drum-Kit/index.html
 
 Todo:
 * extend keys
-* Add sounds to mouse events
+* <strike>Add sounds to mouse events</strike>
 * Make piano notes look nicer
+* Test on different browsers
+
 
 ## Day 2
 ### 02 - JS and CSS Clock
