@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+</head>
+<body>
+
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
+    </div>
+
+
+  <style>
+    html {
+      font-family:'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display:flex;
+      flex:1;
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    .clock {
+      width: 30rem;
+      height: 30rem;
+      border:18px solid #245276;
+      border-radius:50%;
+      margin:50px auto;
+      position: relative;
+      padding:2rem;
+      box-shadow:inset 0 0 15px black;
+      background:#FFF url("img/clock.svg") no-repeat center;
+      background-size: 93%;
+    }
+
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+
+    .clock::after {
+      content:"";
+      height:15px;
+      width:15px;
+      background-color:#EA9636;
+      border:5px solid #3ECAC7;
+      border-radius:100%;
+      position:absolute;
+      top:46.5%;
+      left:46.5%;
+    }
+
+    .hand {
+      width:50%;
+      height:15px;
+      background:#245276;
+      position: absolute;
+      top:50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all .05s;
+      transition-timing-function: cubic-bezier(.1, 2.7, .58, 1);
+      border-radius:10px 0 0 10px;
+    }
+
+    .hour-hand {
+      height:12px;
+      width:31%;
+      left:19%;
+    }
+    .min-hand {
+      height:12px;
+      width:39%;
+      left:11%;
+    }
+    .second-hand {
+      background:#333;
+      height:7px;
+      width:38%;
+      left:12%;
+    }
+
+    
+
+  </style>
+
+  <script>
+
+    const secondHand = document.querySelector('.second-hand');
+    const minHand = document.querySelector('.min-hand');
+    const hourHand = document.querySelector('.hour-hand');
+
+    function setDate(){
+      const now = calcTime('+12'); // NZ timezone
+      const seconds = now.getSeconds();
+      
+      const secondsDegrees = ((seconds / 60) * 360) + 90;
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+      const minutes = now.getMinutes();
+      const minsDegrees = ((minutes / 60) * 360) + 90;
+      minHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+      const hours = now.getHours();
+      const hoursDegrees = ((hours / 12) * 360) + 90;
+      hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+    }
+
+    function calcTime(offset) {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const new_now = new Date(utc + (3600000*offset));
+      return new_now;
+    }
+
+    setInterval(setDate, 1000);
+
+  </script>
+</body>
+</html>
