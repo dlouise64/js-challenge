@@ -13,9 +13,9 @@ Todo:
 * convert wav to WebM
 * extend keys
 * <strike>Add sounds to mouse events</strike>
-* <strike>AAdd sounds to touch events</strike>
+* <strike>Add sounds to touch events</strike>
 * Make piano notes look nicer
-* Test on different browsers
+* <strike>Test on different browsers (checked ios safari v10)</strike>
 
 
 ## Day 2
