@@ -115,7 +115,7 @@
 
   <script>
 
-    const windowEvents = ['mousedown', 'keydown'];
+    const windowEvents = ['mousedown', 'keydown', 'touchstart'];
     windowEvents.forEach(function(ev){
 
       window.addEventListener(ev, function(e) {
@@ -129,6 +129,9 @@
         } else {
           var keySrc = e.keyCode;
         }
+
+        touch = document.getElementById('touch');
+        touch.innerHTML = ev;
 
         const audio = document.querySelector(`audio[data-key="${keySrc}"]`);
         const key_white = document.querySelector(`.white[data-key="${keySrc}"]`);
@@ -166,7 +169,7 @@
 
   </script>
 
-
+  <div id="touch"></div>
 </body>
 
 </html>
