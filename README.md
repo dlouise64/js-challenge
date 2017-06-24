@@ -13,3 +13,11 @@ Todo:
 * extend keys
 * Add sounds to mouse events
 * Make piano notes look nicer
+
+## Day 2
+### 02 - JS and CSS Clock
+
+Demo: https://dlouise64.github.io/js-challenge/02-JS-CSS-Clock/
+
+![alt text](https://user-images.githubusercontent.com/4723307/27506969-5bd4b924-5919-11e7-90a9-72c5fb158a0f.png "A Clock")
+
