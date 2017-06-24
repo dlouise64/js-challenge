@@ -13,7 +13,7 @@ Todo:
 * convert wav to WebM
 * extend keys
 * <strike>Add sounds to mouse events</strike>
-* Add sounds to touch events
+* <strike>AAdd sounds to touch events</strike>
 * Make piano notes look nicer
 * Test on different browsers
 
