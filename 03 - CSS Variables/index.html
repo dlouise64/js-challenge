@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+</head>
+<body>
+  <h2>Update CSS Variables with <span class='h1'>JS</span></h2>
+
+  <div class="controls">
+
+    <label for="base">Base Color</label>
+    <input id="base" type="color" name="base" value="#BADA55">
+  </div>
+
+<div class='eye-ball'>
+  <div class='iris yellowgreen'>
+    <div class='pupil'></div>
+    <div class='reflection'></div>
+  </div>
+</div>
+
+  <style>
+    :root {
+      --base: #BADA55;
+      --spacing: 50px;
+      --blur: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .h1 { 
+      color:var(--base);
+    }
+
+
+  .eye-ball {
+    display: inline-block;
+    height: 175px;
+    width: 175px;
+    border-radius: 50%;
+    background: #feffff;
+    position: relative;
+    background: -webkit-radial-gradient(center ellipse, #feffff 50%, #aaaaaa 100%);
+    background: radial-gradient(ellipse at center, #feffff 50%, #aaaaaa 100%);
+  }
+
+  .iris {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -48px 0 0 -45px;
+    background: -webkit-radial-gradient(center ellipse, var(--base) 48%, #002b04 100%);
+    background: radial-gradient(ellipse at center, var(--base) 48%, #002b04 100%);
+  }
+  .pupil {
+    background-color: #000;
+    border-radius: 50%;
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -21px 0 0 -20px;
+  }
+  .reflection {
+    position: relative;
+    height: 12px;
+    width: 12px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1;
+    top: 60%;
+    left: 50%;
+    margin: -28px 0 0 5px;
+    opacity: .9;
+  }
+    /*
+      misc styles, nothing to do with CSS variables
+    */
+
+    body {
+      text-align: center;
+      background: #193549;
+      color: white;
+      font-family: 'helvetica neue', sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+    }
+
+    .controls {
+      margin-bottom: 50px;
+    }
+
+    input {
+      width:100px;
+    }
+  </style>
+
+  <script>
+    const inputs = document.querySelectorAll('.controls input');
+    
+
+    function handleUpdate(){
+      // console.log(this.value);
+      const suffix = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+    }
+
+    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+  </script>
+
+</body>
+</html>
