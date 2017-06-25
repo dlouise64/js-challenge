@@ -31,6 +31,6 @@ Todo:
 ## Day 3
 ### 03 - CSS Variables
 
-Demo: https://dlouise64.github.io/js-challenge/03-CSS-Variables/index.html
+Demo: https://dlouise64.github.io/js-challenge/03-CSS-Variables
 
 ![alt text](https://user-images.githubusercontent.com/4723307/27513081-a1af5596-59ad-11e7-850b-a903260b0df3.png "A Clock")
