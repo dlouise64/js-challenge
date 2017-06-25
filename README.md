@@ -34,3 +34,10 @@ Todo:
 Demo: https://dlouise64.github.io/js-challenge/03-CSS-Variables
 
 ![alt text](https://user-images.githubusercontent.com/4723307/27513081-a1af5596-59ad-11e7-850b-a903260b0df3.png "A Clock")
+
+## Day 4
+### 04 - Array Cardio Day 1
+
+No Demo.
+
+Learned about different array functions and how they can be very useful.
